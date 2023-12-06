@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'bus', 
-    'dashboard', 
+    'dashboard',
+    'transport', 
 
     'widget_tweaks'
 ]
