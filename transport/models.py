@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from bus.models import Bus
 
 User = get_user_model()
 
@@ -25,10 +24,3 @@ class Route(models.Model):
     )
     start_time = models.TimeField()
 
-
-class Booking(models.Model):
-    bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
-    passenger = models.ForeignKey(User, on_delete=models.CASCADE)
-    is_verified = models.BooleanField(default=False)
-    timestamp = models.DateTimeField(auto_now_add=True)
-     
