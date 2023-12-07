@@ -6,6 +6,7 @@ User = get_user_model()
 
 class Bus(models.Model):
     route = models.ForeignKey(Route, on_delete=models.CASCADE)
+    driver = models.CharField(max_length=100)
     manufacturer = models.CharField(max_length=10)
     color = models.CharField(max_length=50)
     plate_number = models.CharField(max_length=10)
@@ -15,7 +16,6 @@ class Bus(models.Model):
     def __str__(self):
         return f'{self.manufacturer} - {self.plate_number}'
     
-
 class Booking(models.Model):
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
     passenger = models.ForeignKey(User, on_delete=models.CASCADE)

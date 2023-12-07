@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        {% render_field form.name class="form-control" %}
+        <label for="floatingInput">Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.pickup class="form-control" %}
+        <label for="floatingInput">Pickup Location</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.destination class="form-control" %}
+        <label for="floatingInput">Destination</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.trip class="form-control" %}
+        <label for="floatingInput">Trip</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.start_time class="form-control" %}
+        <label for="floatingInput">Start Time</label>
+    </div>
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+</form>
+
+{% endblock content %}

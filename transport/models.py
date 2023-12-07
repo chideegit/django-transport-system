@@ -12,6 +12,7 @@ class Route(models.Model):
         (5, 'Festac'), 
         (6, 'Ojota')
     )
+    name = models.CharField(max_length=20)
     pickup = models.CharField(max_length=10, choices=route_choices, default='Oshodi')
     destination = models.CharField(max_length=10, choices=route_choices)
     trip = models.CharField(

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Route</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Color</th>
+            <th scope="col">Plate Number</th>
+            <th scope="col">Seats</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bus in buses %}
+        <tr>
+            <td>{{bus.route}}</td>
+            <td>{{bus.driver}}</td>
+            <td>{{bus.manufacturer}}</td>
+            <td>{{bus.color}}</td>
+            <td>{{bus.plate_number}}</td>
+            <td>{{bus.seats}}</td>
+            {% if bus.is_available %}
+            <td><span class="badge bg-sucess">Available</span></td>
+            {% else %}
+            <td><span class="badge bg-warning">Unavailable</span></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

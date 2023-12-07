@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Pickup Location</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Trip</th>
+            <th scope="col">Start Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for route in routes %}
+        <tr>
+            <td>{{route.name}}</td>
+            <td>{{route.pickup}}</td>
+            <td>{{route.destination}}</td>
+            <td>{{route.trip}}</td>
+            <td>{{route.start_time}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

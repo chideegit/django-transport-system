@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        {% render_field form.route class="form-control" %}
+        <label for="floatingInput">Route</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.driver class="form-control" %}
+        <label for="floatingInput">Driver name</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.manufacturer class="form-control" %}
+        <label for="floatingInput">Manufacturer</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.color class="form-control" %}
+        <label for="floatingInput">Color</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.plate_number class="form-control" %}
+        <label for="floatingInput">Plate Number</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.seats class="form-control" %}
+        <label for="floatingInput">Seats</label>
+    </div>
+    <div class="form-floating mb-3">
+        {% render_field form.is_available class="form-control" %}
+        <label for="floatingInput">Status</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+</form>
+
+{% endblock content %}
