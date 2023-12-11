@@ -6,7 +6,7 @@ from .form import *
 
 def add_bus(request):
     if request.method == "POST":
-        form = AddBusForm(request)
+        form = AddBusForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'New Bus added and saved to Database')
@@ -35,6 +35,15 @@ def update_bus(request, pk):
     return render(request, 'bus/update_bus.html', context)
 
 def all_buses(request):
-    buses = Bus.objects.filter(is_available = True)
+    buses = Bus.objects.all()
     context = {'buses':buses}
     return render(request, 'bus/all_buses.html', context)
+
+def book_bus(request, pk):
+    get_bus = Bus.objects.get(pk=pk)
+    Booking.objects.create(
+        bus = get_bus, 
+        passenger = request.user, 
+        is_verified = True
+    )
+    

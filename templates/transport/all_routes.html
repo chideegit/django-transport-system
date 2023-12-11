@@ -10,16 +10,18 @@
             <th scope="col">Destination</th>
             <th scope="col">Trip</th>
             <th scope="col">Start Time</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for route in routes %}
         <tr>
-            <td>{{route.name}}</td>
+            <td>{{route.name}} <a href="{% url 'update-route' route.pk %}"><i class="fa fa-pencil"></i></a></td>
             <td>{{route.pickup}}</td>
             <td>{{route.destination}}</td>
             <td>{{route.trip}}</td>
             <td>{{route.start_time}}</td>
+            <td><a href="{% url 'buses-in-route' route.pk %}">Check for Buses</a></td>
         </tr>
         {% endfor %}
     </tbody>

@@ -7,11 +7,13 @@ User = get_user_model()
 class Bus(models.Model):
     route = models.ForeignKey(Route, on_delete=models.CASCADE)
     driver = models.CharField(max_length=100)
-    manufacturer = models.CharField(max_length=10)
+    manufacturer = models.CharField(max_length=10) 
     color = models.CharField(max_length=50)
     plate_number = models.CharField(max_length=10)
     seats = models.PositiveIntegerField(default=20)
     is_available = models.BooleanField(default=True)
+    full_capacity = models.BooleanField(default=False)
+    seats_remaining = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.manufacturer} - {self.plate_number}'

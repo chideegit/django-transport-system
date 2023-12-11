@@ -5,12 +5,12 @@ User = get_user_model()
 
 class Route(models.Model):
     route_choices = (
-        (1, 'Oshodi'), 
-        (2, 'Cele Exp.'), 
-        (3, 'Ajah'),
-        (4, 'Lekki'), 
-        (5, 'Festac'), 
-        (6, 'Ojota')
+        ('Oshodi', 'Oshodi'), 
+        ('Cele Exp.', 'Cele Exp.'), 
+        ('Ajah', 'Ajah'),
+        ('Lekki', 'Lekki'), 
+        ('Festac', 'Festac'), 
+        ('Ojota', 'Ojota')
     )
     name = models.CharField(max_length=20)
     pickup = models.CharField(max_length=10, choices=route_choices, default='Oshodi')
@@ -18,10 +18,21 @@ class Route(models.Model):
     trip = models.CharField(
         max_length=20, 
         choices=(
-            (1, 'One way'), 
-            (2, 'Two way')
+            ('One way', 'One way'), 
+            ('Two way', 'Two way')
         ),
         default='Two way'
     )
-    start_time = models.TimeField()
+    start_time = models.CharField(
+        max_length=15, 
+        choices=(
+            ('07:00', '07:00'), 
+            ('08:00', '08:00'), 
+            ('12:00', '12:00'), 
+            ('13:00', '13:00'), 
+            ('17:00', '17:00'),
+        )
+    )
 
+    def __str__(self):
+        return self.name

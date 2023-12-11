@@ -21,10 +21,10 @@
             <td>{{bus.driver}}</td>
             <td>{{bus.manufacturer}}</td>
             <td>{{bus.color}}</td>
-            <td>{{bus.plate_number}}</td>
+            <td>{{bus.plate_number}} <a href="{% url 'update-bus' bus.pk %}"><i class="fa fa-pencil"></i></a></td>
             <td>{{bus.seats}}</td>
             {% if bus.is_available %}
-            <td><span class="badge bg-sucess">Available</span></td>
+            <td><span class="badge bg-success">Available</span></td>
             {% else %}
             <td><span class="badge bg-warning">Unavailable</span></td>
             {% endif %}
